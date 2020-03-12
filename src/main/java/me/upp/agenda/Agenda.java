@@ -1,4 +1,10 @@
 package me.upp.agenda;
 
 public class Agenda {
+
+    private int a;
+
 }
+
+
+
