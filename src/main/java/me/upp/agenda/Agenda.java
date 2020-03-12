@@ -1,8 +1,14 @@
 package me.upp.agenda;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.ArrayList;
+
 public class Agenda {
 
-    private int a;
+    @Getter @Setter
+    private ArrayList<String> agendar = new ArrayList<String>();
 
 }
 
