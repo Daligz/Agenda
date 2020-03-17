@@ -4,9 +4,8 @@ import java.util.ArrayList;
 
 public class Agenda {
 
-    private ArrayList<String> agendar = new ArrayList<String>();
+    private ArrayList<Agendar> agendar = new ArrayList<Agendar>();
+
+
 
 }
-
-
-
