@@ -9,6 +9,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -57,6 +58,32 @@
                      </children></AnchorPane>
             </content>
           </Tab>
+            <Tab text="Contactos">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField layoutX="226.0" layoutY="75.0" />
+                        <TextField layoutX="226.0" layoutY="149.0" />
+                        <TextField layoutX="226.0" layoutY="210.0" />
+                        <Label layoutX="226.0" layoutY="45.0" text="Nombre">
+                           <font>
+                              <Font name="Arial" size="17.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="226.0" layoutY="118.0" text="Telefono">
+                           <font>
+                              <Font name="Arial" size="17.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="225.0" layoutY="184.0" text="Correo">
+                           <font>
+                              <Font name="Arial" size="17.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="238.0" layoutY="274.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="109.0" text="Guardar" />
+                     </children></AnchorPane>
+                </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>

@@ -12,6 +12,4 @@ public class Agenda {
         MainView.main(args);
     }
 
-
-
 }
