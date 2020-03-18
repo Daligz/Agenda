@@ -1,15 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="me.upp.agenda.views.MainViewController"
-      prefHeight="400.0" prefWidth="600.0">
+<?import javafx.scene.text.Font?>
 
-   <Label text="Test"/>
-
-    <Button text="Boton"/>
+<VBox alignment="TOP_CENTER" pickOnBounds="false" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.231" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.upp.agenda.views.MainViewController">
+   <children>
+      <TabPane prefHeight="449.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Agenda">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <DatePicker id="dateFecha" layoutX="356.0" layoutY="117.0" prefHeight="25.0" prefWidth="171.0" />
+                        <TextArea id="txtNota" fx:id="txtNota" layoutX="70.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0" />
+                        <Label layoutX="70.0" layoutY="27.0" text="Nota">
+                           <font>
+                              <Font name="Arial" size="17.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="356.0" layoutY="85.0" text="Fecha">
+                           <font>
+                              <Font name="Arial" size="17.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="356.0" layoutY="166.0" text="Contacto">
+                           <font>
+                              <Font name="Arial" size="17.0" />
+                           </font>
+                        </Label>
+                        <ComboBox id="comboContacto" layoutX="356.0" layoutY="195.0" prefHeight="25.0" prefWidth="173.0" />
+                        <Button id="btnGuardar" layoutX="243.0" layoutY="298.0" mnemonicParsing="false" onAction="#agendaGuardar" prefHeight="40.0" prefWidth="114.0" text="Guardar" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Citas">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView id="table" prefHeight="393.0" prefWidth="623.0">
+                          <columns>
+                            <TableColumn id="tableFecha" prefWidth="112.66668951511383" text="Fecha" />
+                            <TableColumn id="tableNota" prefWidth="339.3333511352539" text="Nota" />
+                              <TableColumn id="tableContacto" minWidth="0.0" prefWidth="156.66665649414062" text="Contacto" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
 
 </VBox>

@@ -18,7 +18,7 @@ public class MainView extends Application {
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/main.fxml"));
 
-        Scene scene = new Scene(root, 800, 500);
+        Scene scene = new Scene(root, 600, 400);
 
         stage.setTitle("Agenda");
         stage.setScene(scene);

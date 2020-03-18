@@ -3,6 +3,7 @@ package me.upp.agenda;
 import java.util.Date;
 
 public class Agendar {
+
     private String nota;
     private Date fecha;
     private Contacto contacto;
@@ -13,7 +14,6 @@ public class Agendar {
         this.contacto = contacto;
     }
 
-    
     public String getNota() {
         return nota;
     }
