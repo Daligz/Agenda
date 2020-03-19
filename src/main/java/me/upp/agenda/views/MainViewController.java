@@ -17,6 +17,12 @@ public class MainViewController {
      */
     @FXML
     public TextArea txtNota;
+    @FXML
+    public TextField nom;
+    @FXML
+    public TextField tel;
+    @FXML
+    public TextField correo;
 
     @FXML
     public void agendaGuardar(ActionEvent actionEvent) {
@@ -24,7 +30,8 @@ public class MainViewController {
 
         //Asi se obtiene un objeto, esto cambia el texto al precionar el boton
         txtNota.setText(" seppp ");
+        String nota = txtNota.getText();
 
     }
-
+    
 }
