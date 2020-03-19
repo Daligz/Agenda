@@ -1,19 +1,26 @@
 package me.upp.agenda;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Agendar {
 
     private String nota;
-    private Date fecha;
+    private LocalDate fecha;
     private Contacto contacto;
     private static ArrayList<Agendar> agendas = new ArrayList<Agendar>();
 
-    public Agendar(String nota, Date fecha, Contacto contacto) {
+    public Agendar(String nota, LocalDate fecha, Contacto contacto) {
         this.nota = nota;
         this.fecha = fecha;
         this.contacto = contacto;
+        agendas.add(this);
+    }
+
+    public Agendar(String nota, LocalDate fecha) {
+        this.nota = nota;
+        this.fecha = fecha;
+        this.contacto = null;
         agendas.add(this);
     }
 
@@ -29,11 +36,11 @@ public class Agendar {
         this.nota = nota;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
