@@ -1,8 +1,18 @@
 package me.upp.agenda.views;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import me.upp.agenda.Agendar;
+
 
 public class MainViewController {
 
@@ -18,20 +28,40 @@ public class MainViewController {
     @FXML
     public TextArea txtNota;
     @FXML
-    public TextField nom;
+    private TextField nom;
     @FXML
-    public TextField tel;
+    private TextField tel;
     @FXML
-    public TextField correo;
-
+    private TextField correo;
+    @FXML
+    private TableView<Agendar> tabla;
+    @FXML
+    private TableColumn fecha;
+    @FXML
+    private TableColumn nota;
+    @FXML
+    private TableColumn contacto;
+    
+    private ObservableList<Agendar> agendar;
+    
+    public void inicilize(URL url,ResourceBundle rb){
+        agendar=FXCollections.observableArrayList();
+        
+       this.fecha.setCellValueFactory(new PropertyValueFactory("Fecha"));
+    }
+    
     @FXML
     public void agendaGuardar(ActionEvent actionEvent) {
         //Acciones de cuando se preciona el boton guardar
 
         //Asi se obtiene un objeto, esto cambia el texto al precionar el boton
         txtNota.setText(" seppp ");
-        String nota = txtNota.getText();
 
     }
-    
+
+    @FXML
+    private void contactoGuardar(ActionEvent event) {
+    }
+   
+   
 }
