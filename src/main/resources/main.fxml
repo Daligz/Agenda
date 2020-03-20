@@ -22,7 +22,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <DatePicker id="dateFecha" layoutX="356.0" layoutY="117.0" prefHeight="25.0" prefWidth="171.0" />
+                        <DatePicker id="dateFecha" fx:id="dateFecha" layoutX="356.0" layoutY="117.0" prefHeight="25.0" prefWidth="171.0" />
                         <TextArea id="txtNota" fx:id="txtNota" layoutX="70.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0" />
                         <Label layoutX="70.0" layoutY="27.0" text="Nota">
                            <font>
@@ -39,20 +39,20 @@
                               <Font name="Arial" size="17.0" />
                            </font>
                         </Label>
-                        <ComboBox id="comboContacto" layoutX="356.0" layoutY="195.0" prefHeight="25.0" prefWidth="173.0" />
+                        <ComboBox id="comboContacto" fx:id="comboContacto" layoutX="356.0" layoutY="195.0" prefHeight="25.0" prefWidth="173.0" />
                         <Button id="btnGuardar" layoutX="243.0" layoutY="298.0" mnemonicParsing="false" onAction="#agendaGuardar" prefHeight="40.0" prefWidth="114.0" text="Guardar" />
                      </children></AnchorPane>
             </content>
           </Tab>
-          <Tab text="Citas">
+          <Tab onSelectionChanged="#abrirCitas" text="Citas">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView id="table" prefHeight="393.0" prefWidth="623.0">
+                        <TableView id="tablaCitas" fx:id="tablaCitas" prefHeight="393.0" prefWidth="623.0">
                           <columns>
-                            <TableColumn id="tableFecha" prefWidth="112.66668951511383" text="Fecha" />
-                            <TableColumn id="tableNota" prefWidth="339.3333511352539" text="Nota" />
-                              <TableColumn id="tableContacto" minWidth="0.0" prefWidth="156.66665649414062" text="Contacto" />
+                            <TableColumn id="tableFecha" fx:id="columnFecha" prefWidth="112.66668951511383" text="Fecha" />
+                            <TableColumn id="tableNota" fx:id="columnNota" prefWidth="286.6666030883789" text="Nota" />
+                              <TableColumn id="tableContacto" fx:id="columnContacto" minWidth="0.0" prefWidth="210.66665649414062" text="Contacto" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>
@@ -62,9 +62,9 @@
                 <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField layoutX="226.0" layoutY="75.0" />
-                        <TextField layoutX="226.0" layoutY="149.0" />
-                        <TextField layoutX="226.0" layoutY="210.0" />
+                        <TextField fx:id="contactoTelefono" layoutX="226.0" layoutY="149.0" />
+                        <TextField fx:id="contactoNombre" layoutX="226.0" layoutY="75.0" />
+                        <TextField fx:id="contactoCorreo" layoutX="226.0" layoutY="210.0" />
                         <Label layoutX="226.0" layoutY="45.0" text="Nombre">
                            <font>
                               <Font name="Arial" size="17.0" />
@@ -80,7 +80,7 @@
                               <Font name="Arial" size="17.0" />
                            </font>
                         </Label>
-                        <Button layoutX="238.0" layoutY="274.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="109.0" text="Guardar" />
+                        <Button layoutX="238.0" layoutY="274.0" mnemonicParsing="false" onAction="#contactoGuardar" prefHeight="61.0" prefWidth="109.0" text="Guardar" />
                      </children></AnchorPane>
                 </content>
             </Tab>
