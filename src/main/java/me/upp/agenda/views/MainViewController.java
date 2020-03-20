@@ -1,78 +1,87 @@
 package me.upp.agenda.views;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import me.upp.agenda.Agenda;
 import me.upp.agenda.Agendar;
 import me.upp.agenda.Contacto;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+public class MainViewController implements Initializable {
 
-public class MainViewController {
-
+    //Agenda
     @FXML
     public TextArea txtNota;
     @FXML
     public DatePicker dateFecha;
     @FXML
     public ComboBox comboContacto;
+
+    //Contacto
     @FXML
-    private TextField nom;
+    public TextField contactoNombre;
     @FXML
-    private TextField tel;
+    public TextField contactoTelefono;
     @FXML
-    private TextField correo;
+    public TextField contactoCorreo;
+
+    //Citas
     @FXML
-    private TableView<Agendar> tabla;
+    public TableView<Agendar> tablaCitas;
     @FXML
-    private TableColumn fecha;
+    public TableColumn<Agendar, LocalDate> columnFecha;
     @FXML
-    private TableColumn nota;
+    public TableColumn<Agendar, String> columnNota;
     @FXML
-    private TableColumn contacto;
-    
-    private ObservableList<Agendar> agendar;
-    
-    public void inicilize(URL url,ResourceBundle rb){
-        agendar=FXCollections.observableArrayList();
-        
-       this.fecha.setCellValueFactory(new PropertyValueFactory("Fecha"));
-    }
-    
+    public TableColumn<Agendar, Contacto> columnContacto;
+
     @FXML
     public void agendaGuardar(ActionEvent actionEvent) {
-
         try {
             new Agendar(txtNota.getText(), dateFecha.getValue(), Contacto.getByName(comboContacto.getValue().toString()));
         } catch (Exception ex) {
             new Agendar(txtNota.getText(), dateFecha.getValue());
         }
-
-        for (Agendar agenda : Agendar.getAgendas()) {
-            msg(
-                    agenda.getNota() + " - " + agenda.getFecha() + " - " + agenda.getContacto(),
-                    "TITULO JAJA xd", "Nop"
-            );
-        }
+        msg("Agendado para la fecha " + dateFecha.getValue(), "Agenda", "Guardado");
+        txtNota.setText(null);
+        dateFecha.setValue(null);
+        comboContacto.setValue(null);
     }
 
-    @FXML
-    private void contactoGuardar(ActionEvent event) {
+    public void contactoGuardar(ActionEvent actionEvent) {
+        new Contacto(contactoTelefono.getText(), contactoNombre.getText(), contactoCorreo.getText());
+        msg("Se guardo el contacto " + contactoNombre.getText(), "Contacto", "Guardado");
+        contactoTelefono.setText(null);
+        contactoNombre.setText(null);
+        contactoCorreo.setText(null);
+        comboContacto.setItems(FXCollections.observableArrayList(Contacto.getContactosNombres()));
+    }
+
+    public void abrirCitas(Event event) {
+        tablaCitas.setItems(FXCollections.observableArrayList(Agendar.getAgendas()));
     }
 
 
-    public void msg(String message, String title, String headerMessage) {
+    private void msg(String message, String title, String headerMessage) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(headerMessage);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        columnFecha.setCellValueFactory(new PropertyValueFactory<>("Fecha"));
+        columnNota.setCellValueFactory(new PropertyValueFactory<>("Nota"));
+        columnContacto.setCellValueFactory(new PropertyValueFactory<>("Contacto"));
     }
 
 }

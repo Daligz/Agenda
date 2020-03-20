@@ -7,10 +7,10 @@ public class Agendar {
 
     private String nota;
     private LocalDate fecha;
-    private Contacto contacto;
+    private String contacto;
     private static ArrayList<Agendar> agendas = new ArrayList<Agendar>();
 
-    public Agendar(String nota, LocalDate fecha, Contacto contacto) {
+    public Agendar(String nota, LocalDate fecha, String contacto) {
         this.nota = nota;
         this.fecha = fecha;
         this.contacto = contacto;
@@ -44,11 +44,11 @@ public class Agendar {
         this.fecha = fecha;
     }
 
-    public Contacto getContacto() {
+    public String getContacto() {
         return contacto;
     }
 
-    public void setContacto(Contacto contacto) {
+    public void setContacto(String contacto) {
         this.contacto = contacto;
     }
     
