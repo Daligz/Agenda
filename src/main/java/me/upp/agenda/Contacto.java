@@ -33,5 +33,6 @@ public class Contacto {
 
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
+    }   
+    public 
 }
